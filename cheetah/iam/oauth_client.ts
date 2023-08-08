@@ -1,9 +1,14 @@
 import { createAuth0OAuth2Client } from "$deps/deno_kv_oauth.ts";
 
+const redirectUri =
+    Deno.env.get("OAUTH2_REDIRECT_URL") ?? "http://localhost:8000/callback";
+
+const scope = Deno.env.get("AUTH0_SCOPE") ?? "openid";
+
 export const oauthClient = createAuth0OAuth2Client({
-    redirectUri: "http://localhost:8000/callback",
+    redirectUri,
     defaults: {
-        scope: "openid profile",
+        scope,
     },
 });
 
