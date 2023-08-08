@@ -61,7 +61,7 @@ function Custom(props: { isSignedIn: boolean; accessToken: string | null }) {
 }
 
 app.get("/", async (c) => {
-    const sessionId = getSessionId(c.req.raw); //await getSessionAccessToken(oauth2Client);
+    const sessionId = getSessionId(c.req.raw); 
     const isSignedIn = sessionId !== undefined;
     const accessToken = isSignedIn
         ? await getSessionAccessToken(oauthClient, sessionId)
