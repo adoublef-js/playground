@@ -52,7 +52,7 @@ function Custom(props: { isSignedIn: boolean; accessToken: string | null }) {
                 <a href="/signout">Sign out</a>
             </p>
             <p>
-                <a href="https://dash.deno.com/playground/oak-deno-kv-oauth-demo">
+                <a href="https://github.com/adoublef-js/playground/blob/main/cheetah/main.tsx">
                     Source code
                 </a>
             </p>
