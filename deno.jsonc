@@ -1,0 +1,10 @@
+{
+    "tasks": {
+        "dev": "deno run --watch main.ts",
+        "web:cheetah": "deno run -A --unstable --watch ./cheetah/main.tsx"
+    },
+    "compilerOptions": {
+        "jsxFactory": "h",
+        "jsxFragmentFactory": "Fragment"
+    }
+}
