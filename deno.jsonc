@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "dev": "deno run --watch main.ts",
+        "dev": "deno run -A --unstable --watch",
         "web:cheetah": "deno run -A --unstable --watch ./cheetah/main.tsx"
     },
     "imports": {

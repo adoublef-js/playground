@@ -1,0 +1,24 @@
+* {
+    background-color: hsl(120 61% 50% / 0.2) !important;
+}
+
+/* add styles */
+header,
+main,
+footer {
+    min-height: 64px;
+}
+
+#root {
+    min-height: 100vh;
+    min-width: 100dvh;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.wrapper {
+    /* ch based on reading line */
+    width: min(100% - 3rem, 55ch);
+    margin-inline: auto;
+}
