@@ -10,16 +10,54 @@ app.get(
         <!DOCTYPE html>
         <html>
             <link rel="stylesheet" href="/reset/joshw-comeau.css" />
+            <link rel="stylesheet" href="/debug.css" />
             <link rel="stylesheet" href="/layouts/index.css" />
-            <body id="root">
+            <body id="root" class="debug">
                 <header>
                     <!-- header goes here -->
                 </header>
-                <main class="wrapper">
-                    <h1>Hello!</h1>
+                <main class="wrapper sidebar">
+                    <section>
+                        <h1>Hello!</h1>
+                        <p>This is a paragraph</p>
+
+                        <!-- horizontal scroll (reel) -->
+
+                        <!-- consistent form -->
+                        <form>
+                            <label>
+                                <span>email</span>
+                                <input type="text" />
+                            </label>
+                            <label>
+                                <span>email</span>
+                                <input type="text" />
+                            </label>
+                            <label>
+                                <span>email</span>
+                                <input type="text" />
+                            </label>
+                            <button disabled>submit</button>
+                        </form>
+                    </section>
+                    <aside>
+                        <!-- aside -->
+                        <ul>
+                            <li>
+                                <a href="#">foo</a>
+                            </li>
+                            <li>
+                                <a href="#">bar</a>
+                            </li>
+                            <li>
+                                <a href="#">baz</a>
+                            </li>
+                        </ul>
+                    </aside>
                 </main>
                 <footer>
                     <!-- footer goes here -->
+                    <small>Powered by Hono</small>
                 </footer>
             </body>
         </html>
