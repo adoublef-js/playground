@@ -1,13 +1,14 @@
 {
     "tasks": {
-        "dev": "deno run -A --unstable --watch",
-        "web:cheetah": "deno run -A --unstable --watch ./cheetah/main.tsx"
+        "dev": "deno run -A --unstable --watch main.ts"
     },
     "imports": {
-        "$deps/": "./deps/"
+        "$deps/": "./deps/",
+        "hono/jsx": "https://esm.sh/hono@3.3.4/jsx",
+        "hono/jsx/": "https://esm.sh/hono@3.3.4/jsx/"
     },
     "compilerOptions": {
-        "jsxFactory": "h",
-        "jsxFragmentFactory": "Fragment"
+        "jsx": "react-jsx",
+        "jsxImportSource": "hono/jsx"
     }
 }

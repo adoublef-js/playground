@@ -1,5 +1,6 @@
 export {
     createAuth0OAuth2Client,
+    createGitHubOAuth2Client,
     getSessionAccessToken,
     getSessionId,
     handleCallback,
