@@ -1,3 +1,3 @@
-export * from "./html.tsx";
-export * from "./header.tsx";
-export * from "./footer.tsx";
+export * from "$components/base/html.tsx";
+export * from "$components/base/header.tsx";
+export * from "$components/base/footer.tsx";
