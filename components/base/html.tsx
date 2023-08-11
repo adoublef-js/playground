@@ -19,7 +19,10 @@ export const Html = memo(
                     content="width=device-width, initial-scale=1.0"
                 />
                 <title>${title}</title>
-                <script src="/htmx/@1.9.4/index.min.js"></script>
+                <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+                <script src="https://unpkg.com/hyperscript.org@0.9.11"></script>
+                <script src="https://unpkg.com/htmx.org/dist/ext/sse.js"></script>
+                <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
             </head>
             <body id="root">
                 ${children}
