@@ -5,6 +5,7 @@ export {
     type MiddlewareHandler,
     type Context,
     type Env,
+    HTTPException,
 } from "https://deno.land/x/hono@v3.3.4/mod.ts";
 export {
     html,
