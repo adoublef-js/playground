@@ -5,6 +5,7 @@ export {
     type MiddlewareHandler,
     type Context,
     type Env,
+    type Input,
     HTTPException,
 } from "https://deno.land/x/hono@v3.3.4/mod.ts";
 export {
@@ -12,4 +13,5 @@ export {
     serveStatic,
     memo,
     logger,
+    jsx,
 } from "https://deno.land/x/hono@v3.3.4/middleware.ts";

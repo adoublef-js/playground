@@ -1,6 +1,6 @@
 import { Context, HTTPException, Handler } from "$deps/hono.ts";
-import { Counter } from "./components/counter.tsx";
-import { Html } from "./components/base/mod.ts";
+import { Counter } from "$components/counter.tsx";
+import { Html } from "$components/base/mod.ts";
 import { Request, Status, accepts } from "$deps/std/http.ts";
 
 export function handleMain(): Handler<any, "/:count{[0-9]+}?"> {
@@ -12,26 +12,34 @@ export function handleMain(): Handler<any, "/:count{[0-9]+}?"> {
         const nextValue = await doSomething(value);
 
         /* map domain entity to hateoas object */
-        const entity = new Hateoas(new URL(c.req.url).origin, { value });
-        entity.set("self", "GET", `/${value}`);
-        entity.set("increment", "GET", `/${nextValue}`);
+        const entity = {
+            value,
+            _links: {
+                self: {
+                    method: "GET",
+                    href: new URL(c.req.url).origin + `/${value}`,
+                },
+                increment: {
+                    method: "GET",
+                    href: new URL(c.req.url).origin + `/${nextValue}`,
+                },
+            },
+        };
 
         /* write response */
         if (isHtmx) {
             return c.html(
                 <Counter
-                    value={entity.data.value}
-                    href={entity.get("increment")!.href}
+                    value={entity.value}
+                    href={entity._links.increment.href}
                 />,
                 200,
-                {
-                    "HX-Push-Url": entity.get("self")!.href,
-                }
+                { "HX-Push-Url": entity._links.self.href }
             );
         }
 
         if (accept === "*/*") {
-            return c.json(entity.toJSON());
+            return c.json(entity);
         }
 
         if (!(accept === "text/html")) {
@@ -43,9 +51,15 @@ export function handleMain(): Handler<any, "/:count{[0-9]+}?"> {
                 <main>
                     <h1>Hello, World</h1>
                     <Counter
-                        value={entity.data.value}
-                        href={entity.get("increment")!.href}
+                        value={entity.value}
+                        href={entity._links.increment.href}
                     />
+                    <section>
+                        {/* listen to sse */}
+                        <div hx-ext="sse" sse-connect="/sse">
+                            <div sse-swap="message" hx-swap="beforeend"></div>
+                        </div>
+                    </section>
                 </main>
             </Html>
         );
