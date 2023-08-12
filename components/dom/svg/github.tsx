@@ -1,5 +1,5 @@
 import { memo } from "$deps/hono.ts";
-import { Svg, SVGProps } from "./svg.tsx";
+import { Svg, SVGProps } from "$components/dom/svg/svg.tsx";
 
 export const GitHub = memo((props: Omit<SVGProps, "children" | "viewBox">) => (
     <Svg {...props} viewBox={[0, 0, 256, 252]}>

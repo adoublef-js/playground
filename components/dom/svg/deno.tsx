@@ -1,5 +1,5 @@
 import { memo } from "$deps/hono.ts";
-import { SVGProps, Svg } from "./svg.tsx";
+import { SVGProps, Svg } from "$components/dom/svg/svg.tsx";
 
 export const Deno = memo((props: Omit<SVGProps, "children" | "viewBox">) => (
     <Svg {...props} viewBox={[0, 0, 256, 256]}>

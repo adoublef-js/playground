@@ -1,10 +1,9 @@
-import { Component, html, memo } from "$deps/hono.ts";
-import { isAsync } from "https://deno.land/x/zod@v3.21.4/helpers/parseUtil.ts";
+import { HtmlEscapedString, html, memo } from "$deps/hono.ts";
 
 type HtmlProps = {
     title?: string;
     lang?: "en";
-    children?: Component | Component[];
+    children?: HtmlEscapedString | HtmlEscapedString[];
     class?: string;
 };
 
@@ -41,11 +40,17 @@ export const Html = memo(
                 <!-- scripts -->
                 ${scripts.map(({ src, defer, async }) => {
                     if (defer) {
-                        return html`<script src="${src}" defer></script>`;
+                        return html`
+                            <link rel="preload" href="${src}" as="script" />
+                            <script src="${src}" defer></script>
+                        `;
                     }
 
                     if (async) {
-                        return html`<script src="${src}" async></script>`;
+                        return html`
+                            <link rel="preload" href="${src}" as="script" />
+                            <script src="${src}" async></script>
+                        `;
                     }
 
                     return html`<script src="${src}"></script>`;

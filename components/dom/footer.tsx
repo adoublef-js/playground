@@ -1,5 +1,6 @@
 import { memo } from "$deps/hono.ts";
-import { GitHub, Deno } from "./svg/mod.ts";
+import { GitHub } from "$components/dom/svg/github.tsx";
+import { Deno } from "$components/dom/svg/deno.tsx";
 
 type FooterProps = {};
 

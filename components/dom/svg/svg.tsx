@@ -1,8 +1,8 @@
-import { Component } from "$deps/hono.ts";
+import { HtmlEscapedString } from "$deps/hono.ts";
 
 export type SVGProps = {
     viewBox: [number, number, number, number];
-    children: Component | Component[];
+    children: HtmlEscapedString | HtmlEscapedString[];
     class?: string;
     styles?: string;
     width?: number;
