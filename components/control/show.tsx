@@ -1,6 +1,7 @@
 import { HtmlEscapedString, html } from "$deps/hono.ts";
 
-export function Show<T>({ when, fallback, children }: ShowProps<T>) {
+/** [TODO](https://www.solidjs.com/docs/latest/api#show) */
+export function Show<T>({ when, fallback, children }: ShowProps<T>):HtmlEscapedString {
     if (!when) return fallback || html``;
     return typeof children === "function" ? children(when) : children;
 }
