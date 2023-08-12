@@ -1,9 +1,11 @@
 {
     "tasks": {
-        "dev": "deno run -A --unstable --watch"
+        "dev": "deno run -A --unstable --watch",
+        "test": "deno test -A --unstable --parallel"
     },
     "imports": {
         "$deps/": "./deps/",
+        "$lib/": "./lib/",
         "$components/": "./components/",
         "hono/jsx": "https://esm.sh/hono@3.3.4/jsx",
         "hono/jsx/": "https://esm.sh/hono@3.3.4/jsx/"
