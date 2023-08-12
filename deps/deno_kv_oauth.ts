@@ -8,3 +8,4 @@ export {
     signIn,
     signOut,
 } from "https://deno.land/x/deno_kv_oauth@v0.3.0/mod.ts";
+export { OAuth2Client } from "https://deno.land/x/deno_kv_oauth@v0.3.0/deps.ts";

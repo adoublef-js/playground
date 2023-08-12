@@ -1,4 +1,4 @@
-export { type HtmlEscapedString as Component } from "https://deno.land/x/hono@v3.3.4/utils/html.ts";
+export { type HtmlEscapedString } from "https://deno.land/x/hono@v3.3.4/utils/html.ts";
 export {
     Hono,
     type Handler,
