@@ -24,12 +24,12 @@ import {
 // } from "https://esm.sh/gh/adoublef/deno-sqlite@e96baa5112/mod.ts";
 // import {SqliteOptions} from "https://esm.sh/gh/adoublef/deno-sqlite@e96baa5112/src/db.ts";
 
-import { DB, SqliteOptions } from "../../../vendor/deno.land/x/sqlite/mod.ts";
-import { SqliteError } from "../../../vendor/deno.land/x/sqlite/src/error.ts";
+import { DB, SqliteOptions } from "../../../vendor/sqlite/mod.ts";
+import { SqliteError } from "../../../vendor/sqlite/src/error.ts";
 import {
     QueryParameter,
     QueryParameterSet,
-} from "../../../vendor/deno.land/x/sqlite/src/query.ts";
+} from "../../../vendor/sqlite/src/query.ts";
 
 export function createClient(config: Config): LibSqlClient {
     return _createClient(expandConfig(config, true));
