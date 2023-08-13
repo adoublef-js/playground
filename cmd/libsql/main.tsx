@@ -1,5 +1,5 @@
 import { createClient } from "$lib/libsql/dyedgreen/create_client.ts";
-import { Hono } from "$deps/hono.ts";
+import { Hono, logger } from "$deps/hono.ts";
 
 const { env, exit, readTextFile, serve } = Deno;
 
@@ -13,6 +13,9 @@ if (import.meta.main) {
     });
 
     const app = new Hono();
+
+    app.use("*", logger());
+
     app.get("/", async (c) => {
         const rs = await db.execute("SELECT 42");
         const row = rs.rows.at(0);
@@ -22,5 +25,6 @@ if (import.meta.main) {
         c.json({ value });
     });
 
-    serve(app.fetch);
+    const port = Number(env.get("PORT") || "8000");
+    serve({ port }, app.fetch);
 }
