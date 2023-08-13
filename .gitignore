@@ -15,4 +15,3 @@
 # End of https://www.toptal.com/developers/gitignore/api/deno
 
 *.db
-/vendor/
