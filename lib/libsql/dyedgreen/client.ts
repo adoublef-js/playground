@@ -18,6 +18,12 @@ import {
     supportedUrlLink,
     transactionModeToBegin,
 } from "$lib/libsql/utils.ts";
+// import {
+//     DB,
+//     SqliteError,
+// } from "https://esm.sh/gh/adoublef/deno-sqlite@e96baa5112/mod.ts";
+// import {SqliteOptions} from "https://esm.sh/gh/adoublef/deno-sqlite@e96baa5112/src/db.ts";
+
 import { DB, SqliteOptions } from "../../../vendor/deno.land/x/sqlite/mod.ts";
 import { SqliteError } from "../../../vendor/deno.land/x/sqlite/src/error.ts";
 import {
