@@ -1,4 +1,4 @@
-import { Html, SiteProps } from "./base/html.tsx";
+import { Html, SiteProps } from "$components/dom/html.tsx";
 
 type NotFoundProps = SiteProps;
 

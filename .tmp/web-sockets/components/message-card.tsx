@@ -1,8 +1,8 @@
-import { Component } from "$deps/hono.ts";
+import { HtmlEscapedString } from "$deps/hono.ts";
 
 type MessageCardProps = {
     parent: string;
-    children?: Component | Component[];
+    children?: HtmlEscapedString | HtmlEscapedString[];
 };
 
 export function MessageCard({ parent, children }: MessageCardProps) {

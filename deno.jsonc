@@ -1,7 +1,8 @@
 {
     "tasks": {
         "dev": "deno run -A --unstable --watch",
-        "test": "deno test -A --unstable --parallel"
+        "test": "deno test -A --unstable --parallel",
+        "seed": "rm -f playground.db && deno run -A --unstable cmd/seed.ts"
     },
     "imports": {
         "$deps/": "./deps/",
