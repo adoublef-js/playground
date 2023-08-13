@@ -7,11 +7,10 @@ export function For<T, U extends HtmlEscapedString>({
     children,
 }: ForProps<T, U>): HtmlEscapedString {
     if (!each.length) return fallback || html``;
-
-    return <>{each.map(children)}</>;
+    return html`${each.map(children)}`;
 }
 
-type ForProps<T, U extends HtmlEscapedString> = {
+export type ForProps<T, U extends HtmlEscapedString = HtmlEscapedString> = {
     each: readonly T[];
     fallback?: HtmlEscapedString;
     children: (item: T, index: number) => U;
