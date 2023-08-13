@@ -1,1 +1,4 @@
-export { type SetOptional } from "https://esm.sh/type-fest@4.1.0";
+export {
+    type SetOptional,
+    type Simplify,
+} from "https://esm.sh/type-fest@4.1.0";

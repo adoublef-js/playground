@@ -13,5 +13,6 @@ export {
     serveStatic,
     memo,
     logger,
-    jsx,
+    cache,
+    etag,
 } from "https://deno.land/x/hono@v3.3.4/middleware.ts";
