@@ -22,7 +22,8 @@ if (import.meta.main) {
         if (!row) return c.body(null, 500);
 
         const [value] = Object.values(row);
-        c.json({ value });
+        // c.json({ value });
+        return c.json({ value });
     });
 
     const port = Number(env.get("PORT") || "8000");
