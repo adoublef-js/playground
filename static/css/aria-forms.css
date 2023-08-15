@@ -15,7 +15,7 @@ body {
     }
 }
 
-.layout {
+body {
     min-height: 100vh;
     min-height: 100dvh;
 
@@ -23,7 +23,7 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
-.wrapper {
+main {
     /* ch based on reading line */
     width: min(100% - 3rem, 65ch);
     margin-inline: auto;
@@ -34,33 +34,52 @@ body {
     margin-top: var(--flow-space, 1em);
 }
 
-/* rename */
-.preview {
-    display: flex;
-}
-
-.circle {
-    border-radius: 50%;
-}
-
 /* https://www.youtube.com/watch?v=JHregeIsjPQ&t=134s */
-.form {
+form {
     display: grid;
     gap: 1.25rem;
-}
-
-/* analogues to form-group  */
-.form-group {
-    display: grid;
-    gap: 0.5rem;
-}
-
-.form-group--full {
-    grid-column: 1/-1;
+    /* align-items: start; */
+    /* justify-items: stretch; */
+    /* grid-auto-rows: 1fr; */
 }
 
 @media (min-width: 35em) {
-    .form {
+    form {
         grid-template-columns: 1fr 1fr;
     }
+}
+
+/* analogues to form-group  */
+label {
+    display: grid;
+    gap: 0.25rem;
+    /* grid-auto-rows: max-content; */
+    /* min-height: 100px; */
+}
+
+label:has(textarea) {
+    grid-column: 1/-1;
+}
+
+label > textarea {
+    resize: none;
+}
+
+label [title*="required"] {
+    color: red;
+}
+
+[role="tooltip"] {
+    display: none;
+    padding: 0.25em;
+    margin: 0;
+    color: #666;
+    width: 100%;
+    z-index: 2;
+    font-weight: normal;
+    font-style: italic;
+}
+
+:where(input, textarea):focus + [role="tooltip"] {
+    display: inline-block;
 }
