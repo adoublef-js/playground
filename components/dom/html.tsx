@@ -5,6 +5,7 @@ type HtmlProps = {
     lang?: "en";
     children?: HtmlEscapedString | HtmlEscapedString[];
     class?: string;
+    stylesheets?: string[];
 };
 
 const scripts = [
@@ -14,14 +15,20 @@ const scripts = [
     // "/static/hyperscript/@0.9.11/index.min.js"
 ];
 
-const styles = [
-    "/css/resets/elly-loel.css",
+const globalStyles = [
+    // "/css/resets/elly-loel.css",
+    "/css/resets/andy-bell.css",
     "/css/@0.0.1/debug.css",
-    "/css/@0.0.1/index.css",
 ];
 
 export const Html = memo(
-    ({ children, title, ["class"]: className, lang = "en" }: HtmlProps) => html`
+    ({
+        children,
+        title,
+        ["class"]: className,
+        stylesheets,
+        lang = "en",
+    }: HtmlProps) => html`
         <html>
             <head lang="${lang}">
                 <meta content="utf-8" />
@@ -31,7 +38,7 @@ export const Html = memo(
                 />
                 <title>${title}</title>
                 <!-- links to styles -->
-                ${styles.map(
+                ${globalStyles.concat(stylesheets || []).map(
                     (href) => html`
                         <link rel="preload" href="${href}" as="style" />
                         <link rel="stylesheet" href="${href}" />
@@ -56,7 +63,7 @@ export const Html = memo(
                     return html`<script src="${src}"></script>`;
                 })}
             </head>
-            <body class="${className}">
+            <body class="${className}" hx-boost="true">
                 ${children}
             </body>
         </html>
