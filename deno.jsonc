@@ -1,6 +1,6 @@
 {
     "tasks": {
-        "dev": "deno run -A --unstable --watch",
+        "dev": "deno run -A --unstable -r --watch",
         "test": "deno test -A --unstable --parallel",
         "seed": "rm -f playground.db && deno run -A --unstable cmd/seed.ts"
     },
@@ -9,10 +9,17 @@
         "$lib/": "./lib/",
         "$components/": "./components/",
         "hono/jsx": "https://esm.sh/hono@3.3.4/jsx",
-        "hono/jsx/": "https://esm.sh/hono@3.3.4/jsx/"
+        "hono/jsx/": "https://esm.sh/hono@3.3.4/jsx/",
     },
     "compilerOptions": {
         "jsx": "react-jsx",
-        "jsxImportSource": "hono/jsx"
+        "jsxImportSource": "hono/jsx",
+        "lib": [
+            "deno.window",
+            "dom"
+        ]
+        // "types": [
+        //     "@types/**"
+        // ]
     }
 }

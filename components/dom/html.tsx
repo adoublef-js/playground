@@ -9,8 +9,8 @@ type HtmlProps = {
 };
 
 const scripts = [
-    { src: "/htmx/@1.9.4/index.min.js", defer: false, async: false },
-    { src: "/htmx/@1.9.4/ws.js", defer: true, async: false },
+    { src: "/js/htmx/@1.9.4/index.min.js", defer: false, async: false },
+    { src: "/js/htmx/@1.9.4/ws.js", defer: true, async: false },
     // "/static/htmx/@1.9.4/sse.js",
     // "/static/hyperscript/@0.9.11/index.min.js"
 ];

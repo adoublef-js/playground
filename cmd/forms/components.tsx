@@ -7,6 +7,7 @@ type FormProps = {
     disabled?: boolean;
     method?: "get" | "post";
     children?: HtmlEscapedString | HtmlEscapedString[];
+    class?: string;
 };
 
 export function Form({
@@ -14,6 +15,7 @@ export function Form({
     action,
     method = "get",
     value = "Submit",
+    class: className,
 }: FormProps) {
     return (
         <form
@@ -21,6 +23,7 @@ export function Form({
             method={method}
             hx-target="this"
             hx-swap="outerHTML"
+            class={className}
         >
             {children}
             <input type="submit" value={value} />
@@ -28,25 +31,27 @@ export function Form({
     );
 }
 
-type InputProps = {
+type TextFieldProps = {
     label?: string;
     placeholder?: string;
     htmlFor: string;
     value?: string;
     error?: string;
-    reset?: boolean;
+    reset?: unknown | boolean;
+    class?: string;
 };
 
-export function Input({
+export function TextField({
     htmlFor,
     placeholder,
     label,
     value,
     error,
     reset,
-}: InputProps) {
+    class: className,
+}: TextFieldProps) {
     return (
-        <label htmlFor={htmlFor}>
+        <label htmlFor={htmlFor} class={className}>
             <Show when={label} fallback={<span>{htmlFor}</span>}>
                 {(label) => <span>{label}</span>}
             </Show>
@@ -65,6 +70,59 @@ export function Input({
                 {(fooError) => (
                     <>
                         <input
+                            type="text"
+                            name={htmlFor}
+                            id={htmlFor}
+                            placeholder={placeholder}
+                            value={value}
+                        />
+                        <span>{fooError}</span>
+                    </>
+                )}
+            </Show>
+        </label>
+    );
+}
+
+type TextAreaProps = {
+    label?: string;
+    placeholder?: string;
+    htmlFor: string;
+    value?: string;
+    error?: string;
+    reset?: unknown | boolean;
+    class?: string;
+};
+
+export function TextArea({
+    htmlFor,
+    placeholder,
+    label,
+    value,
+    error,
+    reset,
+    class: className,
+}: TextAreaProps) {
+    return (
+        <label htmlFor={htmlFor} class={className}>
+            <Show when={label} fallback={<span>{htmlFor}</span>}>
+                {(label) => <span>{label}</span>}
+            </Show>
+            <Show
+                when={error}
+                fallback={
+                    <textarea
+                        type="text"
+                        name={htmlFor}
+                        id={htmlFor}
+                        placeholder={placeholder}
+                        value={reset ? undefined : value}
+                    />
+                }
+            >
+                {(fooError) => (
+                    <>
+                        <textarea
                             type="text"
                             name={htmlFor}
                             id={htmlFor}

@@ -50,22 +50,22 @@ form {
 }
 
 /* analogues to form-group  */
-label {
+form>[role*=group] {
     display: grid;
     gap: 0.25rem;
     /* grid-auto-rows: max-content; */
     /* min-height: 100px; */
 }
 
-label:has(textarea) {
+form>[role*=group]:has(textarea) {
     grid-column: 1/-1;
 }
 
-label > textarea {
+form>[role*=group]>textarea {
     resize: none;
 }
 
-label [title*="required"] {
+form>[role*=group] [title*="required"] {
     color: red;
 }
 
